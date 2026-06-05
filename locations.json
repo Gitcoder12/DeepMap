@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "city": "Hyderabad",
+  "locations": [
+    { "id": "L001", "name": "Hitech City Junction", "lat": 17.4435, "lng": 78.3772, "cleanliness_score": 72, "last_updated": "2025-06-01", "resources": ["bin", "washroom"], "reports": 14 },
+    { "id": "L002", "name": "Charminar Area", "lat": 17.3616, "lng": 78.4747, "cleanliness_score": 45, "last_updated": "2025-06-01", "resources": ["bin"], "reports": 31 },
+    { "id": "L003", "name": "Jubilee Hills Check Post", "lat": 17.4314, "lng": 78.4081, "cleanliness_score": 85, "last_updated": "2025-06-01", "resources": ["bin", "washroom", "recycling"], "reports": 6 },
+    { "id": "L004", "name": "Secunderabad Railway Station", "lat": 17.4338, "lng": 78.5001, "cleanliness_score": 60, "last_updated": "2025-06-01", "resources": ["bin", "washroom"], "reports": 22 },
+    { "id": "L005", "name": "Gachibowli Stadium Road", "lat": 17.4239, "lng": 78.3501, "cleanliness_score": 78, "last_updated": "2025-06-01", "resources": ["bin", "recycling"], "reports": 9 }
+  ],
+  "resource_types": ["bin", "recycling", "washroom", "water_point"],
+  "score_bands": {
+    "excellent": [80, 100],
+    "good": [60, 79],
+    "average": [40, 59],
+    "poor": [0, 39]
+  }
+}
