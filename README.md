@@ -33,7 +33,7 @@ No third-party Python packages are required by the current implementation.
 1. Enter latitude and longitude.
 2. Select a terrain category and provide its depth, elevation, or aridity metric.
 3. DeepMap assigns a grid ID and calculates a heuristic friction value.
-4. The record is saved locally and can be retrieved by scanning coordinates in the same grid cell.
+4. The record is saved to `deep_map_data.json` in the working directory and can be retrieved by scanning coordinates in the same grid cell.
 
 ## Project Structure
 
@@ -42,8 +42,9 @@ DeepMap/
 ├── main.py       # Interactive terminal workflow
 ├── geo_engine.py # Coordinate grid and friction calculations
 ├── storage.py    # Local JSON persistence
-├── config.py     # Terrain labels and terminal styling
-└── locations.json
+├── config.py     # Terrain labels, defaults, and terminal styling
+├── locations.json # Bundled reference data (not read by the current CLI)
+└── deep_map_data.json # Created at runtime after saving a mapped zone
 ```
 
 ## Scope and Limitations
