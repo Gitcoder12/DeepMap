@@ -65,3 +65,7 @@ See [LICENSE](LICENSE).
 - [README explanation draft](README_ADDENDUM_DRAFT.md) — beginner explanation plus technical scope.
 - [README quality checklist](README_QUALITY_CHECKLIST.md) — clarity and evidence review.
 - [Contributing](CONTRIBUTING.md) — contribution workflow.
+
+- [Agent instructions](AGENTS.md)
+- [Agent skills](SKILLS.md)
+- [Contributing](CONTRIBUTING.md)
