@@ -54,3 +54,14 @@ DeepMap currently uses a coarse coordinate grid and hand-written terrain rules. 
 ## License
 
 See [LICENSE](LICENSE).
+
+---
+
+## Project handbook
+
+- [Activity log](ACTIVITY_LOG.md) — verified changes, checks and decisions.
+- [Feature upgrade plan](FEATURE_UPGRADE_PLAN.md) — prioritised, testable work packages.
+- [Company and team fit](COMPANY_FIT.md) — prospective employer fit, not customer claims.
+- [README explanation draft](README_ADDENDUM_DRAFT.md) — beginner explanation plus technical scope.
+- [README quality checklist](README_QUALITY_CHECKLIST.md) — clarity and evidence review.
+- [Contributing](CONTRIBUTING.md) — contribution workflow.
