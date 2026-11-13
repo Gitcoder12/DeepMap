@@ -69,3 +69,15 @@ See [LICENSE](LICENSE).
 - [Agent instructions](AGENTS.md)
 - [Agent skills](SKILLS.md)
 - [Contributing](CONTRIBUTING.md)
+
+## Understanding the project
+
+### In plain language
+
+A terminal tool that groups latitude/longitude coordinates into coarse map cells and stores simple terrain profiles.
+
+### Technical and research view
+
+Python CLI and JSON persistence. Decimal latitude/longitude values are mapped into one-degree grid identifiers; terrain metadata is associated with cells and a rule-based friction score is calculated. This is a coarse exploration prototype, not a navigation or safety system.
+
+The original feature list, setup instructions and limitations above remain authoritative. For future work, see [FEATURE_UPGRADE_PLAN.md](FEATURE_UPGRADE_PLAN.md), [ACTIVITY_LOG.md](ACTIVITY_LOG.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
