@@ -1,30 +1,44 @@
-"""Spatial Grid Multi-Layer Hashing Engine for DeepMap v1.0."""
+"""Coordinate grid and terrain-friction helpers for DeepMap."""
+
 import math
 
+
 def generate_grid_hash(lat, lon, precision=1.0):
+    """Map valid latitude/longitude values to a coarse grid-cell identifier.
+
+    Coordinates are validated before quantization so invalid GPS values and a
+    zero/negative grid precision cannot silently produce misleading cells.
     """
-    Snaps raw floating-point latitude and longitude variables into a structural 
-    coordinate grid block code (e.g., Lat 23.4162, Lon 25.6628 becomes '23.0_25.0').
-    """
+    try:
+        lat = float(lat)
+        lon = float(lon)
+        precision = float(precision)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Coordinates and precision must be numeric values.") from exc
+
+    if not all(math.isfinite(value) for value in (lat, lon, precision)):
+        raise ValueError("Coordinates and precision must be finite numbers.")
+    if not -90 <= lat <= 90:
+        raise ValueError("Latitude must be between -90 and 90 degrees.")
+    if not -180 <= lon <= 180:
+        raise ValueError("Longitude must be between -180 and 180 degrees.")
+    if precision <= 0:
+        raise ValueError("Grid precision must be greater than zero.")
+
     grid_lat = math.floor(lat / precision) * precision
     grid_lon = math.floor(lon / precision) * precision
     return f"{grid_lat:.1f}_{grid_lon:.1f}"
 
+
 def calculate_terrain_friction(vertical_value, terrain_type):
-    """
-    Calculates operational difficulty multipliers based on topological characteristics.
-    Vast desert aridity, high mountain scaling, or abyssal marine pressure generate hazards.
-    """
+    """Return the prototype's rule-based terrain-friction estimate."""
     base_friction = 10
-    
+
     if terrain_type == "🌊 Ocean":
-        # Deep marine trenches generate profound atmospheric and navigational strain
         return base_friction + abs(min(0, vertical_value)) // 100
-    elif terrain_type == "🏔️ Mountain":
-        # Intense vertical scaling introduces operational gravity hazards
+    if terrain_type == "🏔️ Mountain":
         return base_friction + max(0, vertical_value) // 50
-    elif terrain_type == "🏜️ Desert":
-        # High hyper-aridity indexing adds logistics friction multipliers
+    if terrain_type == "🏜️ Desert":
         return base_friction + max(0, vertical_value) // 10
-        
+
     return base_friction
