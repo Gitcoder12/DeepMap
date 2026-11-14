@@ -24,4 +24,4 @@ def save_map_data(data):
         with open(MAP_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
     except OSError as e:
-        print(f"\n⚠️ Map state persistence failure: {e}")
+        print(f"\n Map state persistence failure: {e}")

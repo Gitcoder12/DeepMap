@@ -14,12 +14,12 @@ from storage import load_map_data, save_map_data
 from geo_engine import generate_grid_hash, calculate_terrain_friction
 
 def register_deep_zone(data):
-    print(f"\n{CLR_DEEP_BLUE}🌐 Deep Coordinate Mapping Initialized{CLR_RESET}")
+    print(f"\n{CLR_DEEP_BLUE} Deep Coordinate Mapping Initialized{CLR_RESET}")
     try:
         lat = float(input("Enter Latitude (e.g., 23.4162 for Sahara): ").strip())
         lon = float(input("Enter Longitude (e.g., 25.6628): ").strip())
     except ValueError:
-        print(f"{CLR_RED}⚠️ Coordinates must be numeric decimal floats.{CLR_RESET}")
+        print(f"{CLR_RED} Coordinates must be numeric decimal floats.{CLR_RESET}")
         return
 
     print("\nSelect Primary Deep Terrain Profile Layer:")
@@ -38,13 +38,13 @@ def register_deep_zone(data):
         t_type = TERRAIN_MOUNTAIN
         lbl_v = "Enter Peak Elevation metric in meters above sea level (e.g., 6200): "
     else:
-        print(f"{CLR_RED}⚠️ Invalid terrain profiling layer assignment.{CLR_RESET}")
+        print(f"{CLR_RED} Invalid terrain profiling layer assignment.{CLR_RESET}")
         return
 
     try:
         val = int(input(lbl_v).strip())
     except ValueError:
-        print(f"{CLR_RED}⚠️ Value must be a valid integer parameter.{CLR_RESET}")
+        print(f"{CLR_RED} Value must be a valid integer parameter.{CLR_RESET}")
         return
 
     grid_id = generate_grid_hash(lat, lon)
@@ -59,28 +59,28 @@ def register_deep_zone(data):
     }
     
     save_map_data(data)
-    print(f"\n✅ {CLR_EMERALD}Zone Locked! Spatial Grid ID '{grid_id}' mapped into local history matrix with a hazard rating of {friction}/100.{CLR_RESET}")
+    print(f"\n {CLR_EMERALD}Zone Locked! Spatial Grid ID '{grid_id}' mapped into local history matrix with a hazard rating of {friction}/100.{CLR_RESET}")
 
 def scan_coordinates(data):
-    print(f"\n{CLR_SAND_GOLD}📡 Deep Sub-surface Coordinate Scan{CLR_RESET}")
+    print(f"\n{CLR_SAND_GOLD} Deep Sub-surface Coordinate Scan{CLR_RESET}")
     try:
         lat = float(input("Enter Target Latitude: ").strip())
         lon = float(input("Enter Target Longitude: ").strip())
     except ValueError:
-        print(f"{CLR_RED}⚠️ Coordinates must be numeric decimal floats.{CLR_RESET}")
+        print(f"{CLR_RED} Coordinates must be numeric decimal floats.{CLR_RESET}")
         return
         
     grid_id = generate_grid_hash(lat, lon)
     zone = data["mapped_zones"].get(grid_id)
     
     if not zone:
-        print(f"\n🛰️ {CLR_RED}Coordinates fall into uncharted space. Grid ID: {grid_id}{CLR_RESET}")
+        print(f"\n {CLR_RED}Coordinates fall into uncharted space. Grid ID: {grid_id}{CLR_RESET}")
     else:
-        print(f"\n🔍 {CLR_EMERALD}TERRAIN GRID PROFILE LOCATED:{CLR_RESET}")
-        print(f"  📍 Spatial Block ID : {CLR_SAND_GOLD}{grid_id}{CLR_RESET}")
-        print(f"  🗺️ Environmental Layer : {zone['terrain']}")
-        print(f"  📐 Vertical Metric    : {zone['vertical_metric']} meters/units")
-        print(f"  ⚠️ Navigation Hazard  : {CLR_RED}Friction Rating {zone['navigation_friction']}/100{CLR_RESET}")
+        print(f"\n {CLR_EMERALD}TERRAIN GRID PROFILE LOCATED:{CLR_RESET}")
+        print(f"   Spatial Block ID : {CLR_SAND_GOLD}{grid_id}{CLR_RESET}")
+        print(f"   Environmental Layer : {zone['terrain']}")
+        print(f"   Vertical Metric    : {zone['vertical_metric']} meters/units")
+        print(f"   Navigation Hazard  : {CLR_RED}Friction Rating {zone['navigation_friction']}/100{CLR_RESET}")
 
 def main():
     data = load_map_data()
@@ -102,7 +102,7 @@ def main():
             print(f"\n{CLR_DEEP_BLUE}Exiting DeepMap mapping interface telemetry stream.{CLR_RESET}")
             break
         else:
-            print(f"{CLR_RED}⚠️ Invalid choice selection parameters.{CLR_RESET}")
+            print(f"{CLR_RED} Invalid choice selection parameters.{CLR_RESET}")
 
 if __name__ == "__main__":
     main()
