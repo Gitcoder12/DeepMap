@@ -50,3 +50,6 @@ The inspected test suite covers grid hashing only. Storage recovery, write failu
 3. Validate terrain metric input and document heuristic limitations.
 4. Align README architecture with files that actually exist.
 5. Add storage and CLI regression tests; confirm CI on the PR head.
+
+## PR head verification
+- PR #5 head CI: DeepMap CI completed successfully. This validates the configured compileall and unittest steps on the PR head; it does not replace local/runtime review.
