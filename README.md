@@ -365,3 +365,21 @@ This section supplements the maintainer-authored README above. The original text
 - Mark unverified sources, IDs, records, metrics and external claims as unknown/unverified rather than guessing.
 - Verify installation, execution, tests and public claims against the exact current commit before presenting this project to recruiters, researchers or professors.
 - See [MODEL_AUDIT_ROUTER.md](MODEL_AUDIT_ROUTER.md) for the independent multi-model review and merge gate.
+
+---
+
+## Engineering Audit & Handover — 2026-11-17
+
+**Review scope:** default branch `main`; static inspection of `main.py`. Runtime tests were not executed.
+
+### Confirmed findings
+- `register_deep_zone()` and `scan_coordinates()` reject non-numeric coordinate input, but the inspected code does not enforce latitude bounds of -90 to 90 or longitude bounds of -180 to 180.
+- Terrain metric input is parsed as an integer, but no range or domain validation is visible in the inspected entry point.
+- The CLI stores the entered coordinates and computed friction in local mapped-zone data. The scientific meaning and calibration of terrain friction must be documented before treating it as a real-world hazard score.
+
+### Next actions
+1. Validate geographic coordinate ranges and terrain-specific metric ranges before generating grid IDs or saving records.
+2. Add tests for boundary coordinates, invalid coordinates, invalid terrain choices, and malformed storage.
+3. Document the friction model, units, assumptions, and limitations; label heuristic scores as estimates.
+
+**Verification status:** static entry-point inspection only; geospatial calculations, persistence, and tests remain unverified.
