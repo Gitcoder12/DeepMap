@@ -383,3 +383,11 @@ This section supplements the maintainer-authored README above. The original text
 3. Document the friction model, units, assumptions, and limitations; label heuristic scores as estimates.
 
 **Verification status:** static entry-point inspection only; geospatial calculations, persistence, and tests remain unverified.
+
+---
+
+## Examples Used
+- Mount Everest expedition
+- Mariana Trench exploration
+- Chernobyl exclusion-zone hazard profiling
+- Great Pyramid of Giza location analysis
