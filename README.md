@@ -383,3 +383,26 @@ This section supplements the maintainer-authored README above. The original text
 3. Document the friction model, units, assumptions, and limitations; label heuristic scores as estimates.
 
 **Verification status:** static entry-point inspection only; geospatial calculations, persistence, and tests remain unverified.
+
+
+---
+
+## Branch Activity & Development History
+
+**Audit date:** 2026-11-18 · **Comparison base:** `main`
+
+| Branch | Difference from `main` | Observed work / changed paths |
+|---|---:|---|
+| `audit/initial-assessment-2026-11-15` | 2 ahead / 1 behind | Initial engineering assessment in `AI_WORKLOG.md` |
+| `chore/remove-emoji-glyphs-2026-11-13` | 6 / 13 | Glyph cleanup in `main.py` and `storage.py` |
+| `docs/portfolio-docs-2026-11-13` | 0 / 5 | No unique commits relative to current `main`; branch is behind |
+| `docs/project-status-audit-20261116` | 1 / 1 | Project status snapshot: `PROJECT_STATUS.md` |
+| `fix/coordinate-validation-and-data-schema` | 3 / 13 | Coordinate validation, schema documentation and geo-engine tests |
+
+### Open pull requests observed during this audit
+
+- [PR #6 — project status snapshot](https://github.com/Gitcoder12/DeepMap/pull/6)
+- [PR #5 — engineering audit worklog](https://github.com/Gitcoder12/DeepMap/pull/5)
+- [PR #2 — remove emoji glyphs](https://github.com/Gitcoder12/DeepMap/pull/2)
+
+**Verification boundary:** Branch metadata and changed paths only; no test or merge-readiness certification. Review PR head/base and CI before merging. No branches have been merged or deleted by this documentation update.
