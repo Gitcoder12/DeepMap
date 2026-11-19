@@ -391,3 +391,27 @@ This section supplements the maintainer-authored README above. The original text
 - Mariana Trench exploration
 - Chernobyl exclusion-zone hazard profiling
 - Great Pyramid of Giza location analysis
+
+
+---
+
+## Comparison with Existing Open-Source Projects
+
+DeepMap is an exploration-oriented geospatial prototype. The projects below are relevant technical references, but they are not exact feature-for-feature equivalents.
+
+| Project | Established focus | Relationship to DeepMap |
+|---|---|---|
+| [QGIS](https://github.com/qgis/QGIS) | Full desktop GIS for creating, editing, analysing and publishing geospatial data | Much broader GIS platform; DeepMap instead explores a lightweight, terminal-first workflow for extreme and hazardous environments. |
+| [GeoPandas](https://github.com/geopandas/geopandas) | Python data structures and operations for vector geospatial data | A reusable geospatial analysis library; DeepMap packages selected coordinate-grid, terrain-profile and exploration-record workflows into an end-user CLI. |
+| [GDAL](https://github.com/OSGeo/gdal) | Core geospatial data formats and raster/vector processing tools | Lower-level geospatial infrastructure; DeepMap is not a replacement for its format coverage or processing maturity. |
+
+### Where DeepMap is different
+- **Exploration-first framing:** the documented workflow centres on remote, extreme and hazardous locations rather than general-purpose GIS authoring or navigation.
+- **Lightweight CLI:** the README describes a zero-dependency Python entry point and local JSON persistence, rather than a desktop GIS stack.
+- **Domain-specific records:** terrain categories, exploration targets and hazard notes are first-class concepts in the current design.
+
+### Where established projects are stronger
+QGIS, GeoPandas and GDAL have much broader geospatial ecosystems, format support, documentation and community adoption. DeepMap should not claim superior GIS capability. Its potential contribution is a focused exploration workflow layered over established geospatial concepts.
+
+### Evidence and limitations
+This comparison is based on the documented project scope, not a benchmark or a complete code-level feature audit of the comparator projects. DeepMap's README and source must be checked before treating roadmap items—such as live discovery, terrain visualisation or route analysis—as implemented.
